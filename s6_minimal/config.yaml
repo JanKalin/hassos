@@ -1,0 +1,9 @@
+name: "S6 Minimal Add-on"
+description: "A minimal Home Assistant add-on using s6-overlay"
+version: "1.0.0"
+slug: s6_minimal
+startup: services
+boot: auto
+arch:
+  - aarch64
+  - amd64
