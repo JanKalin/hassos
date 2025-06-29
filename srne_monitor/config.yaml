@@ -1,0 +1,23 @@
+name: "SRNE monitor"
+description: "Monitors SRNE solar charge controller via RS232 and publishes to MQTT"
+version: "1.0.0"
+slug: srne_monitor
+host_network: true
+uart: true
+startup: services
+boot: auto
+arch:
+  - aarch64
+  - amd64
+  - armhf
+  - armv7
+  - i386
+devices:
+  - /dev/serial0
+  - /dev/ttyAMA0
+  - /dev/serial1
+  - /dev/ttyS0
+options:
+  serial_port: "/dev/serial0"
+schema:
+  serial_port: str
