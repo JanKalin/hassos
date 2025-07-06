@@ -1,5 +1,5 @@
 name: Serial to MQTT Forwarder
-version: "1.0"
+version: "1.0.1"
 slug: serial_to_mqtt
 description: "Reads from serial and forwards to MQTT"
 arch:
