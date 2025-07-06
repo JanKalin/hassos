@@ -1,0 +1,26 @@
+name: Serial to MQTT Forwarder
+version: "1.0"
+slug: serial_to_mqtt
+description: "Reads from serial and forwards to MQTT"
+arch:
+  - amd64
+  - armv7
+  - aarch64
+startup: application
+boot: auto
+host_network: true
+devices:
+  - /dev/ttyACM0
+options:
+  serial_port: "/dev/serial/by-id/usb-Arduino_Nano_RP2040_Connect_06C63450189B5F32-if00"
+  baud_rate: 9600
+  mqtt_broker: "homeassistant"
+  mqtt_port: 1883
+  mqtt_topic: "srnesolar"
+schema:
+  serial_port: str
+  baud_rate: int
+  mqtt_broker: str
+  mqtt_port: int
+  mqtt_topic: str
+
