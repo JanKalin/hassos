@@ -3,12 +3,16 @@ import serial
 import paho.mqtt.client as mqtt
 
 import time
+import json
 
-SERIAL_PORT = os.environ.get('SERIAL_PORT', '/dev/ttyACM0')
-BAUD_RATE = int(os.environ.get('BAUD_RATE', '9600'))
-MQTT_BROKER = os.environ.get('MQTT_BROKER', 'homeassistant')
-MQTT_PORT = int(os.environ.get('MQTT_PORT', '1883'))
-MQTT_TOPIC = os.environ.get('MQTT_TOPIC', 'arduino/serial')
+with open("/data/options.json", "r") as f:
+    options = json.load(f)
+
+MQTT_TOPIC = options.get("mqtt_topic", "arduino/serial")
+MQTT_BROKER = options.get("mqtt_broker", "localhost")
+MQTT_PORT = options.get('mqtt_port', '1883')
+BAUD_RATE = options.get("baud_rate", 9600)
+SERIAL_PORT = options.get("serial_port", "/dev/ttyACM0")
 
 print(f"Starting serial-to-MQTT forwarder")
 print(f"Serial: {SERIAL_PORT} @ {BAUD_RATE}")
