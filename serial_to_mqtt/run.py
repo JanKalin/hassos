@@ -1,9 +1,11 @@
 import os
 import serial
-import paho.mqtt.client as mqtt
-
 import time
 import json
+import warnings
+warnings.filterwarnings("ignore", category=DeprecationWarning)
+
+import paho.mqtt.client as mqtt
 
 with open("/data/options.json", "r") as f:
     options = json.load(f)
