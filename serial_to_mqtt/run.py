@@ -33,6 +33,7 @@ except Exception as e:
     print(f"{datetime.datetime.now().isoformat()} Failed to open serial port: {e}")
     exit(1)
 
+print(f"{datetime.datetime.now().isoformat()} Requesting discovery")
 ser.write(b"discovery\n")
 
 while True:
