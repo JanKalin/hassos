@@ -21,7 +21,7 @@ print(f"MQTT: {MQTT_BROKER}:{MQTT_PORT} → {MQTT_TOPIC}")
 # Wait for MQTT to be ready
 time.sleep(5)
 
-client = mqtt.Client()
+client = mqtt.Client(protocol=mqtt.MQTTv311)
 client.connect(MQTT_BROKER, MQTT_PORT, 60)
 
 try:
